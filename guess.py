@@ -11,15 +11,17 @@ correct_answer = generate_number()
 guesses = 1
 
 while guesses <= 10:
-    user_input = int(input())
-    if user_input < correct_answer and guesses != 10:
-        print("Your guess is too low. Try again.")
-    elif user_input > correct_answer and guesses != 10:
-        print("Your guess is too high. Try again.")
-    elif user_input == correct_answer:
-        print(f"YOU GOT IT RIGHT WITH {guesses} ATTEMPTS!!!")
-        break
-    else:
-        print(f"SORRY! THE GAME IS OVER. I WAS THINKING IN THE NUMBER {correct_answer}")            
-    guesses += 1
-    
+    try:
+        user_input = int(input())
+        if user_input < correct_answer and guesses != 10:
+            print("Your guess is too low. Try again.")
+        elif user_input > correct_answer and guesses != 10:
+            print("Your guess is too high. Try again.")
+        elif user_input == correct_answer:
+            print(f"YOU GOT IT RIGHT WITH {guesses} ATTEMPTS!!!")
+            break
+        else:
+            print(f"SORRY! THE GAME IS OVER. I WAS THINKING IN THE NUMBER {correct_answer}")            
+        guesses += 1
+    except ValueError:
+        print("Please enter a integer number.")
